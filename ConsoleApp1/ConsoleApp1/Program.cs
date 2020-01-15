@@ -17,7 +17,7 @@ using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
-    class LearningCSharp   
+    class LearningCSharp
     {
         class Keywords
         {
@@ -30,7 +30,7 @@ namespace ConsoleApp1
             public void KeywordList()
             {
                 List<string> keywords_li = new List<string>(this.keyword_dict.Keys);
-                for(int i=0; i<keywords_li.Count;i++)
+                for (int i = 0; i < keywords_li.Count; i++)
                 {
                     Console.WriteLine(keywords_li[i]);
                 }
@@ -40,7 +40,7 @@ namespace ConsoleApp1
             {
                 try { return keyword_dict[query]; }
                 catch (KeyNotFoundException) { return "Keyword not found"; }
-                    
+
             }
             private void BuildList()
             {
@@ -157,32 +157,33 @@ namespace ConsoleApp1
 
             }
             static void Main(string[] args)
-        {
-            Keywords test = new Keywords();
-            Console.WriteLine("For a list of keywords enter \"keywords\"");
-            Console.WriteLine("When ready to quit the program, enter \"exit\"");
-
-            while(true)
             {
-                Console.WriteLine("Type in a keyword to learn more about it.\n");
-                string uinput = Console.ReadLine();
-                if (uinput == "exit")
+                Keywords test = new Keywords();
+                Console.WriteLine("For a list of keywords enter \"keywords\"");
+                Console.WriteLine("When ready to quit the program, enter \"exit\"");
+
+                while (true)
                 {
-                    break;
-                }
-                switch (uinput)
-                {
-                    case "keywords":
-                        test.KeywordList();
+                    Console.WriteLine("Type in a keyword to learn more about it.\n");
+                    string uinput = Console.ReadLine();
+                    if (uinput == "exit")
+                    {
                         break;
-                    default: // Might change this later upon adding more stuff to this
-                        Console.WriteLine(test.FindKeyword(uinput) + "\n");
-                        break;
+                    }
+                    switch (uinput)
+                    {
+                        case "keywords":
+                            test.KeywordList();
+                            break;
+                        default: // Might change this later upon adding more stuff to this
+                            Console.WriteLine(test.FindKeyword(uinput) + "\n");
+                            break;
+                    }
                 }
+
+                Console.WriteLine("Goodbye!");
+
             }
-
-            Console.WriteLine("Goodbye!");
-
         }
     }
 }
